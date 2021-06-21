@@ -1,4 +1,4 @@
-name: LinuxKitt CI
+name: LinuxKitti CI
 on: [push, pull_request]
 
 jobs:
