@@ -166,10 +166,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-linuxkit-
  
-    - name: Run Tests
-      run: |
-          cd test
-          rtf -l build -v run -x linuxkit.packages
+    - name: Build
+      uses: docker/build-push-action@v1
 
   test_kernel:
     name: Kernel Tests
@@ -214,10 +212,8 @@ jobs:
         sudo ln -s $(pwd)/bin/linuxkit-amd64-linux /usr/local/bin/linuxkit
         /usr/local/bin/linuxkit version
 
-    - name: Run Tests
-      run: |
-          cd test
-          rtf -l build -v run -x linuxkit.kernel
+    - name: Build
+      uses: docker/build-push-action@v1
 
   test_linuxkit:
     name: LinuxKit Build Tests
@@ -262,10 +258,8 @@ jobs:
         sudo ln -s $(pwd)/bin/linuxkit-amd64-linux /usr/local/bin/linuxkit
         /usr/local/bin/linuxkit version
 
-    - name: Run Tests
-      run: |
-          cd test
-          rtf -l build -v run -x linuxkit.build
+    - name: Build
+      uses: docker/build-push-action@v1
 
   test_platforms:
     name: Platform Tests
@@ -310,10 +304,8 @@ jobs:
         sudo ln -s $(pwd)/bin/linuxkit-amd64-linux /usr/local/bin/linuxkit
         /usr/local/bin/linuxkit version
 
-    - name: Run Tests
-      run: |
-          cd test
-          rtf -l build -v run -x linuxkit.platforms
+    - name: Build
+      uses: docker/build-push-action@v1
 
   test_security:
     name: Security Tests
@@ -358,7 +350,5 @@ jobs:
         sudo ln -s $(pwd)/bin/linuxkit-amd64-linux /usr/local/bin/linuxkit
         /usr/local/bin/linuxkit version
 
-    - name: Run Tests
-      run: |
-          cd test
-          rtf -l build -v run -x linuxkit.security
+    - name: Build-test
+      uses: docker/build-push-action@v1
